@@ -1,12 +1,25 @@
-import { StatusBar } from 'expo-status-bar';
+import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import 'react-native-gesture-handler';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import QrcodeScreen from './Qrcode';
+
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator screenOptions={{
+        headerTransparent: true,
+        headerTintColor: "#FFF",
+        headerTitleStyle: {
+          fontSize: 24
+        }
+      }}>
+        <Stack.Screen name="Qrcode" component={QrcodeScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
